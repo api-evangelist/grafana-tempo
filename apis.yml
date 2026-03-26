@@ -1,10 +1,17 @@
 aid: grafana-tempo
 name: Grafana Tempo
 description: >-
-  Grafana Tempo is an open source distributed tracing backend that scales to ingest massive trace volumes with minimal dependencies.
+  Grafana Tempo is an open-source, high-scale distributed tracing backend that
+  requires only object storage to operate, making it cost-effective and easy to
+  run. It integrates deeply with Grafana, Prometheus, and Loki for seamless
+  observability across metrics, logs, and traces.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Distributed Tracing
+  - Observability
+  - Open Source
+  - Grafana
   - Microservices
 url: >-
   https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml
@@ -15,14 +22,31 @@ apis:
   - aid: grafana-tempo:grafana-tempo
     name: Grafana Tempo
     description: >-
-      Grafana Tempo is an open source distributed tracing backend that scales to ingest massive trace volumes with minimal dependencies.
-    humanURL: https://github.com/api-evangelist/grafana-tempo
+      Grafana Tempo is an open-source, high-scale distributed tracing backend
+      that requires only object storage to operate, making it cost-effective and
+      easy to run. It integrates deeply with Grafana, Prometheus, and Loki for
+      seamless observability across metrics, logs, and traces.
+    humanURL: https://grafana.com/oss/tempo/
     tags:
+      - Distributed Tracing
+      - Observability
+      - Open Source
+      - Grafana
       - Microservices
     properties: []
 common:
   - type: Website
-    url: https://github.com/api-evangelist/grafana-tempo
+    url: https://grafana.com/oss/tempo/
+  - type: Documentation
+    url: https://grafana.com/docs/tempo/latest/
+  - type: Getting Started
+    url: https://grafana.com/docs/tempo/latest/getting-started/
+  - type: GitHub
+    url: https://github.com/grafana/tempo
+  - type: Blog
+    url: https://grafana.com/blog/
+  - type: Pricing
+    url: https://grafana.com/pricing/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

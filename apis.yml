@@ -19,21 +19,26 @@ created: '2026-03-26'
 modified: '2026-03-26'
 specificationVersion: '0.19'
 apis:
-  - aid: grafana-tempo:grafana-tempo
-    name: Grafana Tempo
+  - aid: grafana-tempo:tempo-http-api
+    name: Grafana Tempo HTTP API
     description: >-
-      Grafana Tempo is an open-source, high-scale distributed tracing backend
-      that requires only object storage to operate, making it cost-effective and
-      easy to run. It integrates deeply with Grafana, Prometheus, and Loki for
-      seamless observability across metrics, logs, and traces.
-    humanURL: https://grafana.com/oss/tempo/
+      Grafana Tempo HTTP API for querying traces, searching with TraceQL,
+      retrieving tag names and values, and computing metrics summaries from
+      distributed trace data.
+    humanURL: https://grafana.com/docs/tempo/latest/api_docs/
     tags:
       - Distributed Tracing
       - Observability
-      - Open Source
-      - Grafana
-      - Microservices
-    properties: []
+      - TraceQL
+      - Traces
+      - Search
+    properties:
+      - type: Documentation
+        url: https://grafana.com/docs/tempo/latest/api_docs/
+      - type: OpenAPI
+        url: openapi/tempo-http-api.yml
+      - type: JSONSchema
+        url: json-schema/trace.yml
 common:
   - type: Website
     url: https://grafana.com/oss/tempo/

@@ -1,0 +1,180 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://api-evangelist.com/schemas/grafana-tempo/trace.json
+title: Grafana Tempo Trace
+description: >-
+  Represents a distributed trace in Grafana Tempo following the OpenTelemetry
+  trace data model. A trace is composed of resource spans grouped by the
+  originating resource (service).
+type: object
+properties:
+  batches:
+    type: array
+    description: A collection of resource spans from different services
+    items:
+      $ref: '#/$defs/ResourceSpans'
+$defs:
+  ResourceSpans:
+    type: object
+    description: A collection of spans from a single resource (service)
+    properties:
+      resource:
+        $ref: '#/$defs/Resource'
+      scopeSpans:
+        type: array
+        items:
+          $ref: '#/$defs/ScopeSpans'
+  Resource:
+    type: object
+    description: Describes the entity producing telemetry
+    properties:
+      attributes:
+        type: array
+        items:
+          $ref: '#/$defs/KeyValue'
+  ScopeSpans:
+    type: object
+    description: Spans grouped by instrumentation scope
+    properties:
+      scope:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Instrumentation scope name
+          version:
+            type: string
+            description: Instrumentation scope version
+      spans:
+        type: array
+        items:
+          $ref: '#/$defs/Span'
+  Span:
+    type: object
+    description: >-
+      A single operation within a trace. Follows the OTLP span data model.
+    required:
+      - traceId
+      - spanId
+    properties:
+      traceId:
+        type: string
+        description: Hex-encoded 16-byte trace ID
+      spanId:
+        type: string
+        description: Hex-encoded 8-byte span ID
+      traceState:
+        type: string
+        description: W3C trace state header value
+      parentSpanId:
+        type: string
+        description: Hex-encoded 8-byte parent span ID, empty for root spans
+      name:
+        type: string
+        description: Logical name of the operation
+      kind:
+        type: integer
+        description: >-
+          Span kind: 0=UNSPECIFIED, 1=INTERNAL, 2=SERVER, 3=CLIENT,
+          4=PRODUCER, 5=CONSUMER
+        enum: [0, 1, 2, 3, 4, 5]
+      startTimeUnixNano:
+        type: string
+        description: Start time in nanoseconds since Unix epoch
+      endTimeUnixNano:
+        type: string
+        description: End time in nanoseconds since Unix epoch
+      attributes:
+        type: array
+        description: Key-value pairs providing span context
+        items:
+          $ref: '#/$defs/KeyValue'
+      droppedAttributesCount:
+        type: integer
+        description: Number of attributes dropped due to limits
+      events:
+        type: array
+        description: Time-stamped annotations on the span
+        items:
+          $ref: '#/$defs/SpanEvent'
+      droppedEventsCount:
+        type: integer
+      links:
+        type: array
+        description: References to related spans in other traces
+        items:
+          $ref: '#/$defs/SpanLink'
+      droppedLinksCount:
+        type: integer
+      status:
+        $ref: '#/$defs/SpanStatus'
+  SpanEvent:
+    type: object
+    properties:
+      timeUnixNano:
+        type: string
+      name:
+        type: string
+      attributes:
+        type: array
+        items:
+          $ref: '#/$defs/KeyValue'
+      droppedAttributesCount:
+        type: integer
+  SpanLink:
+    type: object
+    properties:
+      traceId:
+        type: string
+      spanId:
+        type: string
+      traceState:
+        type: string
+      attributes:
+        type: array
+        items:
+          $ref: '#/$defs/KeyValue'
+  SpanStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: 0=UNSET, 1=OK, 2=ERROR
+        enum: [0, 1, 2]
+      message:
+        type: string
+        description: Developer-facing error message
+  KeyValue:
+    type: object
+    required:
+      - key
+    properties:
+      key:
+        type: string
+      value:
+        $ref: '#/$defs/AnyValue'
+  AnyValue:
+    type: object
+    description: A value that can be one of several types
+    properties:
+      stringValue:
+        type: string
+      boolValue:
+        type: boolean
+      intValue:
+        type: string
+      doubleValue:
+        type: number
+      arrayValue:
+        type: object
+        properties:
+          values:
+            type: array
+            items:
+              $ref: '#/$defs/AnyValue'
+      kvlistValue:
+        type: object
+        properties:
+          values:
+            type: array
+            items:
+              $ref: '#/$defs/KeyValue'

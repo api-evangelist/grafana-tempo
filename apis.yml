@@ -1,0 +1,28 @@
+aid: grafana-tempo
+name: Grafana Tempo
+description: >-
+  Grafana Tempo is an open source distributed tracing backend that scales to ingest massive trace volumes with minimal dependencies.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Microservices
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: grafana-tempo:grafana-tempo
+    name: Grafana Tempo
+    description: >-
+      Grafana Tempo is an open source distributed tracing backend that scales to ingest massive trace volumes with minimal dependencies.
+    humanURL: https://github.com/api-evangelist/grafana-tempo
+    tags:
+      - Microservices
+    properties: []
+common:
+  - type: Website
+    url: https://github.com/api-evangelist/grafana-tempo
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

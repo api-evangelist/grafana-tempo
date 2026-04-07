@@ -9,10 +9,10 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Distributed Tracing
-  - Observability
-  - Open Source
   - Grafana
   - Microservices
+  - Observability
+  - Open Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -29,9 +29,9 @@ apis:
     tags:
       - Distributed Tracing
       - Observability
+      - Search
       - TraceQL
       - Traces
-      - Search
     properties:
       - type: Documentation
         url: https://grafana.com/docs/tempo/latest/api_docs/

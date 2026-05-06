@@ -1,0 +1,600 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Grafana Tempo HTTP API
+  description: Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is
+    an open-source, high-scale distributed tracing backend.
+  tags:
+  - Grafana
+  - Tempo
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: grafana-tempo
+    baseUri: http://localhost:3200
+    description: Grafana Tempo HTTP API HTTP API.
+    resources:
+    - name: api-traces-traceid
+      path: /api/traces/{traceID}
+      operations:
+      - name: gettracebyid
+        method: GET
+        description: Get trace by ID
+        inputParameters:
+        - name: traceID
+          in: path
+          type: string
+          required: true
+          description: Trace ID in hex format
+        - name: start
+          in: query
+          type: integer
+          description: Start of time range in Unix epoch seconds
+        - name: end
+          in: query
+          type: integer
+          description: End of time range in Unix epoch seconds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-search
+      path: /api/search
+      operations:
+      - name: searchtraces
+        method: GET
+        description: Search for traces
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: TraceQL query string
+        - name: tags
+          in: query
+          type: string
+          description: Tag-based search in logfmt format, e.g. "service.name=myservice error=true"
+        - name: minDuration
+          in: query
+          type: string
+          description: Minimum trace duration, e.g. "1.5s" or "500ms"
+        - name: maxDuration
+          in: query
+          type: string
+          description: Maximum trace duration
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of traces to return
+        - name: start
+          in: query
+          type: integer
+          description: Start of time range in Unix epoch seconds
+        - name: end
+          in: query
+          type: integer
+          description: End of time range in Unix epoch seconds
+        - name: spss
+          in: query
+          type: integer
+          description: Spans per span set, limits spans returned per set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-search-tags
+      path: /api/search/tags
+      operations:
+      - name: getsearchtags
+        method: GET
+        description: Get search tag names
+        inputParameters:
+        - name: scope
+          in: query
+          type: string
+          description: Scope of tags to return (resource, span, or intrinsic)
+        - name: start
+          in: query
+          type: integer
+          description: Start of time range in Unix epoch seconds
+        - name: end
+          in: query
+          type: integer
+          description: End of time range in Unix epoch seconds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-search-tag-tagname-values
+      path: /api/search/tag/{tagName}/values
+      operations:
+      - name: getsearchtagvalues
+        method: GET
+        description: Get values for a tag
+        inputParameters:
+        - name: tagName
+          in: path
+          type: string
+          required: true
+          description: The tag name to lookup values for
+        - name: q
+          in: query
+          type: string
+          description: TraceQL query to filter values by
+        - name: start
+          in: query
+          type: integer
+          description: Start of time range in Unix epoch seconds
+        - name: end
+          in: query
+          type: integer
+          description: End of time range in Unix epoch seconds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v2-search-tags
+      path: /api/v2/search/tags
+      operations:
+      - name: getsearchtagsv2
+        method: GET
+        description: Get search tag names (v2)
+        inputParameters:
+        - name: scope
+          in: query
+          type: string
+          description: Scope of tags to return
+        - name: start
+          in: query
+          type: integer
+        - name: end
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v2-search-tag-tagname-values
+      path: /api/v2/search/tag/{tagName}/values
+      operations:
+      - name: getsearchtagvaluesv2
+        method: GET
+        description: Get values for a tag (v2)
+        inputParameters:
+        - name: tagName
+          in: path
+          type: string
+          required: true
+        - name: q
+          in: query
+          type: string
+          description: TraceQL query to filter values
+        - name: start
+          in: query
+          type: integer
+        - name: end
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-echo
+      path: /api/echo
+      operations:
+      - name: echo
+        method: GET
+        description: Echo endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ready
+      path: /ready
+      operations:
+      - name: ready
+        method: GET
+        description: Readiness check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: status-buildinfo
+      path: /status/buildinfo
+      operations:
+      - name: getbuildinfo
+        method: GET
+        description: Get build information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-metrics-summary
+      path: /api/metrics/summary
+      operations:
+      - name: getmetricssummary
+        method: GET
+        description: Get metrics summary
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: true
+          description: TraceQL query to compute metrics from
+        - name: groupBy
+          in: query
+          type: string
+          description: Attribute to group metrics by
+        - name: start
+          in: query
+          type: integer
+        - name: end
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: grafana-tempo-rest
+    description: REST adapter for Grafana Tempo HTTP API.
+    resources:
+    - path: /api/traces/{traceID}
+      name: gettracebyid
+      operations:
+      - method: GET
+        name: gettracebyid
+        description: Get trace by ID
+        call: grafana-tempo.gettracebyid
+        with:
+          traceID: rest.traceID
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/search
+      name: searchtraces
+      operations:
+      - method: GET
+        name: searchtraces
+        description: Search for traces
+        call: grafana-tempo.searchtraces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/search/tags
+      name: getsearchtags
+      operations:
+      - method: GET
+        name: getsearchtags
+        description: Get search tag names
+        call: grafana-tempo.getsearchtags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/search/tag/{tagName}/values
+      name: getsearchtagvalues
+      operations:
+      - method: GET
+        name: getsearchtagvalues
+        description: Get values for a tag
+        call: grafana-tempo.getsearchtagvalues
+        with:
+          tagName: rest.tagName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v2/search/tags
+      name: getsearchtagsv2
+      operations:
+      - method: GET
+        name: getsearchtagsv2
+        description: Get search tag names (v2)
+        call: grafana-tempo.getsearchtagsv2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/v2/search/tag/{tagName}/values
+      name: getsearchtagvaluesv2
+      operations:
+      - method: GET
+        name: getsearchtagvaluesv2
+        description: Get values for a tag (v2)
+        call: grafana-tempo.getsearchtagvaluesv2
+        with:
+          tagName: rest.tagName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/echo
+      name: echo
+      operations:
+      - method: GET
+        name: echo
+        description: Echo endpoint
+        call: grafana-tempo.echo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ready
+      name: ready
+      operations:
+      - method: GET
+        name: ready
+        description: Readiness check
+        call: grafana-tempo.ready
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /status/buildinfo
+      name: getbuildinfo
+      operations:
+      - method: GET
+        name: getbuildinfo
+        description: Get build information
+        call: grafana-tempo.getbuildinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/metrics/summary
+      name: getmetricssummary
+      operations:
+      - method: GET
+        name: getmetricssummary
+        description: Get metrics summary
+        call: grafana-tempo.getmetricssummary
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: grafana-tempo-mcp
+    transport: http
+    description: MCP adapter for Grafana Tempo HTTP API for AI agent use.
+    tools:
+    - name: gettracebyid
+      description: Get trace by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.gettracebyid
+      with:
+        traceID: tools.traceID
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: traceID
+        type: string
+        description: Trace ID in hex format
+        required: true
+      - name: start
+        type: integer
+        description: Start of time range in Unix epoch seconds
+      - name: end
+        type: integer
+        description: End of time range in Unix epoch seconds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchtraces
+      description: Search for traces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.searchtraces
+      with:
+        q: tools.q
+        tags: tools.tags
+        minDuration: tools.minDuration
+        maxDuration: tools.maxDuration
+        limit: tools.limit
+        start: tools.start
+        end: tools.end
+        spss: tools.spss
+      inputParameters:
+      - name: q
+        type: string
+        description: TraceQL query string
+      - name: tags
+        type: string
+        description: Tag-based search in logfmt format, e.g. "service.name=myservice error=true"
+      - name: minDuration
+        type: string
+        description: Minimum trace duration, e.g. "1.5s" or "500ms"
+      - name: maxDuration
+        type: string
+        description: Maximum trace duration
+      - name: limit
+        type: integer
+        description: Maximum number of traces to return
+      - name: start
+        type: integer
+        description: Start of time range in Unix epoch seconds
+      - name: end
+        type: integer
+        description: End of time range in Unix epoch seconds
+      - name: spss
+        type: integer
+        description: Spans per span set, limits spans returned per set
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsearchtags
+      description: Get search tag names
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getsearchtags
+      with:
+        scope: tools.scope
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: scope
+        type: string
+        description: Scope of tags to return (resource, span, or intrinsic)
+      - name: start
+        type: integer
+        description: Start of time range in Unix epoch seconds
+      - name: end
+        type: integer
+        description: End of time range in Unix epoch seconds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsearchtagvalues
+      description: Get values for a tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getsearchtagvalues
+      with:
+        tagName: tools.tagName
+        q: tools.q
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: tagName
+        type: string
+        description: The tag name to lookup values for
+        required: true
+      - name: q
+        type: string
+        description: TraceQL query to filter values by
+      - name: start
+        type: integer
+        description: Start of time range in Unix epoch seconds
+      - name: end
+        type: integer
+        description: End of time range in Unix epoch seconds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsearchtagsv2
+      description: Get search tag names (v2)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getsearchtagsv2
+      with:
+        scope: tools.scope
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: scope
+        type: string
+        description: Scope of tags to return
+      - name: start
+        type: integer
+        description: start
+      - name: end
+        type: integer
+        description: end
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsearchtagvaluesv2
+      description: Get values for a tag (v2)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getsearchtagvaluesv2
+      with:
+        tagName: tools.tagName
+        q: tools.q
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: tagName
+        type: string
+        description: tagName
+        required: true
+      - name: q
+        type: string
+        description: TraceQL query to filter values
+      - name: start
+        type: integer
+        description: start
+      - name: end
+        type: integer
+        description: end
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: echo
+      description: Echo endpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.echo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ready
+      description: Readiness check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.ready
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getbuildinfo
+      description: Get build information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getbuildinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmetricssummary
+      description: Get metrics summary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: grafana-tempo.getmetricssummary
+      with:
+        q: tools.q
+        groupBy: tools.groupBy
+        start: tools.start
+        end: tools.end
+      inputParameters:
+      - name: q
+        type: string
+        description: TraceQL query to compute metrics from
+        required: true
+      - name: groupBy
+        type: string
+        description: Attribute to group metrics by
+      - name: start
+        type: integer
+        description: start
+      - name: end
+        type: integer
+        description: end
+      outputParameters:
+      - type: object
+        mapping: $.

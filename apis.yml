@@ -52,6 +52,10 @@ common:
     url: https://grafana.com/blog/
   - type: Pricing
     url: https://grafana.com/pricing/
+  - type: Integrations
+    url: https://grafana.com/integrations/
+integrations:
+  - name: All visualization integrations
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

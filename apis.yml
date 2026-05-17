@@ -44,7 +44,7 @@ common:
     url: https://grafana.com/oss/tempo/
   - type: Documentation
     url: https://grafana.com/docs/tempo/latest/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://grafana.com/docs/tempo/latest/getting-started/
   - type: GitHub
     url: https://github.com/grafana/tempo

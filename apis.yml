@@ -51,6 +51,8 @@ common:
   url: https://grafana.com/pricing/
 - type: Integrations
   url: https://grafana.com/integrations/
+- type: LLMsTxt
+  url: https://grafana.com/llms.txt
 integrations:
 - name: All visualization integrations
 maintainers:

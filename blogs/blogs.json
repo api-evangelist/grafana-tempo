@@ -2,12 +2,20 @@
   "repo": "grafana-tempo",
   "feeds": [
     {
-      "source": "https://grafana.com/blog/",
+      "source": "https://grafana.com/blog/index.xml",
       "feed_url": "https://grafana.com/blog/index.xml",
-      "title": "Grafana Labs blog on Grafana Labs",
-      "saved": 1
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/grafana/tempo",
+      "feed_url": "https://github.com/grafana/tempo",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 21,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }

@@ -1,0 +1,1318 @@
+{
+  "item": [
+    {
+      "id": "f7cada6a-3f3d-48c6-87c1-5396a02bfaaa",
+      "name": "Get trace by ID",
+      "request": {
+        "name": "Get trace by ID",
+        "description": {
+          "content": "Returns a complete trace by its trace ID. The response format depends on the Accept header.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "traces",
+            ":traceID"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>",
+              "description": "Start of time range in Unix epoch seconds"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>",
+              "description": "End of time range in Unix epoch seconds"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "traceID",
+              "description": "(Required) Trace ID in hex format"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7d942924-313e-4bc9-adf8-3fc3dc54b858",
+          "name": "Trace found and returned",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "traces",
+                ":traceID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "traceID",
+                  "description": "(Required) Trace ID in hex format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"batches\": [\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": \"string\",\n            \"value\": {\n              \"stringValue\": \"string\",\n              \"intValue\": \"string\",\n              \"doubleValue\": 1312.3463429045546,\n              \"boolValue\": true\n            }\n          },\n          {\n            \"key\": \"string\",\n            \"value\": {\n              \"stringValue\": \"string\",\n              \"intValue\": \"string\",\n              \"doubleValue\": 3777.980081518223,\n              \"boolValue\": false\n            }\n          }\n        ]\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": \"string\",\n            \"version\": \"string\"\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"scope\": {\n            \"name\": \"string\",\n            \"version\": \"string\"\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": \"string\",\n            \"value\": {\n              \"stringValue\": \"string\",\n              \"intValue\": \"string\",\n              \"doubleValue\": 1444.6737116907316,\n              \"boolValue\": false\n            }\n          },\n          {\n            \"key\": \"string\",\n            \"value\": {\n              \"stringValue\": \"string\",\n              \"intValue\": \"string\",\n              \"doubleValue\": 7983.755072548127,\n              \"boolValue\": false\n            }\n          }\n        ]\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": \"string\",\n            \"version\": \"string\"\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"scope\": {\n            \"name\": \"string\",\n            \"version\": \"string\"\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6db40dc5-e979-41f4-8754-73ca2c3f37ed",
+          "name": "Trace not found",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "traces",
+                ":traceID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "traceID",
+                  "description": "(Required) Trace ID in hex format"
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "45c8bb22-cd2d-45db-97ad-e696d2355e35",
+          "name": "Internal server error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "traces",
+                ":traceID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "traceID",
+                  "description": "(Required) Trace ID in hex format"
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ec82b0c3-08d6-4969-9410-11dcf7bcf878",
+      "name": "Search for traces",
+      "request": {
+        "name": "Search for traces",
+        "description": {
+          "content": "Searches for traces matching the given parameters. Supports tag-based search and TraceQL queries.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "search"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "TraceQL query string"
+            },
+            {
+              "disabled": false,
+              "key": "tags",
+              "value": "<string>",
+              "description": "Tag-based search in logfmt format, e.g. \"service.name=myservice error=true\""
+            },
+            {
+              "disabled": false,
+              "key": "minDuration",
+              "value": "<string>",
+              "description": "Minimum trace duration, e.g. \"1.5s\" or \"500ms\""
+            },
+            {
+              "disabled": false,
+              "key": "maxDuration",
+              "value": "<string>",
+              "description": "Maximum trace duration"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "20",
+              "description": "Maximum number of traces to return"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>",
+              "description": "Start of time range in Unix epoch seconds"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>",
+              "description": "End of time range in Unix epoch seconds"
+            },
+            {
+              "disabled": false,
+              "key": "spss",
+              "value": "<integer>",
+              "description": "Spans per span set, limits spans returned per set"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0e3a8fea-0a48-4717-ad44-364dfc0e7676",
+          "name": "Search results",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "minDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "maxDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "spss",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"traces\": [\n    {\n      \"traceID\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootTraceName\": \"string\",\n      \"startTimeUnixNano\": \"string\",\n      \"durationMs\": 5311,\n      \"spanSets\": [\n        {\n          \"spans\": [\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"matched\": 8075\n        },\n        {\n          \"spans\": [\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"matched\": 2864\n        }\n      ]\n    },\n    {\n      \"traceID\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootTraceName\": \"string\",\n      \"startTimeUnixNano\": \"string\",\n      \"durationMs\": 7543,\n      \"spanSets\": [\n        {\n          \"spans\": [\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"matched\": 1652\n        },\n        {\n          \"spans\": [\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"spanID\": \"string\",\n              \"startTimeUnixNano\": \"string\",\n              \"durationNanos\": \"string\",\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"matched\": 6781\n        }\n      ]\n    }\n  ],\n  \"metrics\": {\n    \"inspectedTraces\": 8578,\n    \"inspectedBytes\": 9596\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d7d0d52c-4385-4888-9d84-de1fdd22d9d1",
+          "name": "Bad request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "minDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "maxDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "spss",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "a433d6be-97de-481b-9049-b3bd0ef8855e",
+          "name": "Internal server error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "minDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "maxDuration",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "spss",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "74d53988-02d5-4ac2-bc90-5004aaeddc53",
+      "name": "Get search tag names",
+      "request": {
+        "name": "Get search tag names",
+        "description": {
+          "content": "Returns a list of tag names that can be used for search.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "tags"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "scope",
+              "value": "<string>",
+              "description": "Scope of tags to return (resource, span, or intrinsic)"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>",
+              "description": "Start of time range in Unix epoch seconds"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>",
+              "description": "End of time range in Unix epoch seconds"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4c51429e-ac40-4e18-8f56-b6f39bd270b9",
+          "name": "A list of tag names",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"tagNames\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "32a9dde9-0344-4cbb-9203-3c054b88f367",
+      "name": "Get values for a tag",
+      "request": {
+        "name": "Get values for a tag",
+        "description": {
+          "content": "Returns a list of values for a given tag name.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "search",
+            "tag",
+            ":tagName",
+            "values"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "TraceQL query to filter values by"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>",
+              "description": "Start of time range in Unix epoch seconds"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>",
+              "description": "End of time range in Unix epoch seconds"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "tagName",
+              "description": "(Required) The tag name to lookup values for"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6e49690e-8079-4f9f-b16c-5285aae98018",
+          "name": "A list of tag values",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "tag",
+                ":tagName",
+                "values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tagName",
+                  "description": "(Required) The tag name to lookup values for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"tagValues\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a194fa7f-dbb0-4d47-87cc-257fd60accae",
+      "name": "Get search tag names (v2)",
+      "request": {
+        "name": "Get search tag names (v2)",
+        "description": {
+          "content": "Returns tag names with their scopes. V2 endpoint provides scope information alongside tag names.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "v2",
+            "search",
+            "tags"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "scope",
+              "value": "<string>",
+              "description": "Scope of tags to return"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1d8425a2-19c8-4674-8523-65108f38d3a8",
+          "name": "Scoped tag names",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "search",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"scopes\": [\n    {\n      \"name\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "670d9017-fd7b-44d8-a9ee-67363bbace76",
+      "name": "Get values for a tag (v2)",
+      "request": {
+        "name": "Get values for a tag (v2)",
+        "description": {
+          "content": "Returns tag values with their types.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "v2",
+            "search",
+            "tag",
+            ":tagName",
+            "values"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "TraceQL query to filter values"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "tagName",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c5c284e6-edb5-4477-9898-f99b3c43894b",
+          "name": "Tag values with types",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "search",
+                "tag",
+                ":tagName",
+                "values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tagName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"tagValues\": [\n    {\n      \"type\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4735657e-7abc-42d8-8020-dcf2f3b646d6",
+      "name": "Echo endpoint",
+      "request": {
+        "name": "Echo endpoint",
+        "description": {
+          "content": "Health check endpoint that returns a simple response.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "echo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "9e9afc1e-d31d-48c8-b11d-523ec3e6c8c1",
+          "name": "Service is healthy",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "echo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d6677c9f-34be-4f3c-9451-96455fff6c52",
+      "name": "Readiness check",
+      "request": {
+        "name": "Readiness check",
+        "description": {
+          "content": "Returns 200 when Tempo is ready to serve traffic.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "ready"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "851bf63f-323b-4cc0-8f34-cf067c2efcfd",
+          "name": "Service is ready",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "dbf72555-533c-4859-8a4d-6e3ee6a3456f",
+          "name": "Service is not ready",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Service Unavailable",
+          "code": 503,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "78421953-4223-492f-a971-9d228877a11f",
+      "name": "Get build information",
+      "request": {
+        "name": "Get build information",
+        "description": {
+          "content": "Returns build information about the Tempo instance.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "status",
+            "buildinfo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "43d60b98-a3d3-495c-bb74-ec8b3b6534e4",
+          "name": "Build information",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "status",
+                "buildinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"version\": \"string\",\n  \"revision\": \"string\",\n  \"branch\": \"string\",\n  \"buildDate\": \"string\",\n  \"buildUser\": \"string\",\n  \"goVersion\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "3508e153-37a7-4e85-80c6-6d6920546854",
+      "name": "Get metrics summary",
+      "request": {
+        "name": "Get metrics summary",
+        "description": {
+          "content": "Returns RED metrics (rate, error, duration) computed from traces matching the given TraceQL query.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "metrics",
+            "summary"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "(Required) TraceQL query to compute metrics from"
+            },
+            {
+              "disabled": false,
+              "key": "groupBy",
+              "value": "<string>",
+              "description": "Attribute to group metrics by"
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<integer>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "33f9d847-8ede-4d2f-a1d5-5c706c57c662",
+          "name": "Metrics summary",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "metrics",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "groupBy",
+                  "value": "<string>"
+                },
+                {
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"spanCount\": 9397,\n  \"errorSpanCount\": 818,\n  \"series\": [\n    {\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 6994.9495434048,\n            \"boolValue\": true\n          }\n        },\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 8863.572511070313,\n            \"boolValue\": false\n          }\n        }\n      ],\n      \"p50\": 734.7980965090661,\n      \"p90\": 9680.347114392627,\n      \"p95\": 2151.5248488303228,\n      \"p99\": 7369.831678035611,\n      \"rate\": 4090.380444547208,\n      \"errors\": 459.0178451291793\n    },\n    {\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 3127.7160866285626,\n            \"boolValue\": false\n          }\n        },\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 7223.4270571659,\n            \"boolValue\": false\n          }\n        }\n      ],\n      \"p50\": 9226.002096373742,\n      \"p90\": 8918.69447839041,\n      \"p95\": 8461.595057993269,\n      \"p99\": 1791.554813860874,\n      \"rate\": 8734.166388876147,\n      \"errors\": 6668.006049794577\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3200",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85d14d35-bb89-4088-8604-148096e84bab",
+    "name": "Grafana Tempo HTTP API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.\n\nContact Support:\n Name: Grafana Labs",
+      "type": "text/plain"
+    }
+  }
+}

@@ -37,6 +37,10 @@ apis:
       - type: JSONSchema
         url: json-schema/trace.yml
 common:
+  - type: TrustCenter
+    url: security/grafana-tempo-trust-center.yml
+  - type: DomainSecurity
+    url: security/grafana-tempo-domain-security.yml
   - type: Website
     url: https://grafana.com/oss/tempo/
   - type: Documentation

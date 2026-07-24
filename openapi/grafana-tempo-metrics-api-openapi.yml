@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Grafana Tempo HTTP Echo Metrics API
+  description: Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.
+  version: 2.0.0
+  contact:
+    name: Grafana Labs
+    url: https://grafana.com/oss/tempo/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: http://localhost:3200
+  description: Default Tempo server
+tags:
+- name: Metrics
+paths:
+  /api/metrics/summary:
+    get:
+      operationId: getMetricsSummary
+      summary: Get metrics summary
+      description: Returns RED metrics (rate, error, duration) computed from traces matching the given TraceQL query.
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: TraceQL query to compute metrics from
+        schema:
+          type: string
+      - name: groupBy
+        in: query
+        description: Attribute to group metrics by
+        schema:
+          type: string
+      - name: start
+        in: query
+        schema:
+          type: integer
+      - name: end
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Metrics summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricsSummaryResponse'
+      tags:
+      - Metrics
+components:
+  schemas:
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    MetricsSummaryResponse:
+      type: object
+      properties:
+        spanCount:
+          type: integer
+        errorSpanCount:
+          type: integer
+        series:
+          type: array
+          items:
+            type: object
+            properties:
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeyValue'
+              p50:
+                type: number
+              p90:
+                type: number
+              p95:
+                type: number
+              p99:
+                type: number
+              rate:
+                type: number
+              errors:
+                type: number

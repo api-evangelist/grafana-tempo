@@ -1,0 +1,156 @@
+openapi: 3.1.0
+info:
+  title: Grafana Tempo HTTP Echo Traces API
+  description: Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.
+  version: 2.0.0
+  contact:
+    name: Grafana Labs
+    url: https://grafana.com/oss/tempo/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: http://localhost:3200
+  description: Default Tempo server
+tags:
+- name: Traces
+paths:
+  /api/traces/{traceID}:
+    get:
+      operationId: getTraceByID
+      summary: Get trace by ID
+      description: Returns a complete trace by its trace ID. The response format depends on the Accept header.
+      parameters:
+      - name: traceID
+        in: path
+        required: true
+        description: Trace ID in hex format
+        schema:
+          type: string
+      - name: start
+        in: query
+        description: Start of time range in Unix epoch seconds
+        schema:
+          type: integer
+      - name: end
+        in: query
+        description: End of time range in Unix epoch seconds
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Trace found and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trace'
+            application/protobuf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Trace not found
+        '500':
+          description: Internal server error
+      tags:
+      - Traces
+components:
+  schemas:
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    Span:
+      type: object
+      properties:
+        traceId:
+          type: string
+        spanId:
+          type: string
+        parentSpanId:
+          type: string
+        name:
+          type: string
+        kind:
+          type: integer
+          description: 0=UNSPECIFIED, 1=INTERNAL, 2=SERVER, 3=CLIENT, 4=PRODUCER, 5=CONSUMER
+        startTimeUnixNano:
+          type: string
+          description: Start time in nanoseconds since epoch
+        endTimeUnixNano:
+          type: string
+          description: End time in nanoseconds since epoch
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+        status:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: 0=UNSET, 1=OK, 2=ERROR
+            message:
+              type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpanEvent'
+    ScopeSpans:
+      type: object
+      properties:
+        scope:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'
+    SpanEvent:
+      type: object
+      properties:
+        timeUnixNano:
+          type: string
+        name:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+    ResourceSpans:
+      type: object
+      properties:
+        resource:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValue'
+        scopeSpans:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeSpans'
+    Trace:
+      type: object
+      properties:
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpans'

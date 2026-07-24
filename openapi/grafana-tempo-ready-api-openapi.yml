@@ -1,0 +1,29 @@
+openapi: 3.1.0
+info:
+  title: Grafana Tempo HTTP Echo Ready API
+  description: Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.
+  version: 2.0.0
+  contact:
+    name: Grafana Labs
+    url: https://grafana.com/oss/tempo/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+- url: http://localhost:3200
+  description: Default Tempo server
+tags:
+- name: Ready
+paths:
+  /ready:
+    get:
+      operationId: ready
+      summary: Readiness check
+      description: Returns 200 when Tempo is ready to serve traffic.
+      responses:
+        '200':
+          description: Service is ready
+        '503':
+          description: Service is not ready
+      tags:
+      - Ready

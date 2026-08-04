@@ -1,0 +1,548 @@
+openapi: 3.1.0
+info:
+  title: Grafana Tempo HTTP API
+  description: >-
+    Grafana Tempo HTTP API for querying traces, searching with TraceQL,
+    and retrieving trace metadata. Tempo is an open-source, high-scale
+    distributed tracing backend.
+  version: 2.0.0
+  contact:
+    name: Grafana Labs
+    url: https://grafana.com/oss/tempo/
+  license:
+    name: AGPL-3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+servers:
+  - url: http://localhost:3200
+    description: Default Tempo server
+paths:
+  /api/traces/{traceID}:
+    get:
+      operationId: getTraceByID
+      summary: Get trace by ID
+      description: >-
+        Returns a complete trace by its trace ID. The response format depends
+        on the Accept header.
+      parameters:
+        - name: traceID
+          in: path
+          required: true
+          description: Trace ID in hex format
+          schema:
+            type: string
+        - name: start
+          in: query
+          description: Start of time range in Unix epoch seconds
+          schema:
+            type: integer
+        - name: end
+          in: query
+          description: End of time range in Unix epoch seconds
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trace found and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trace'
+            application/protobuf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Trace not found
+        '500':
+          description: Internal server error
+  /api/search:
+    get:
+      operationId: searchTraces
+      summary: Search for traces
+      description: >-
+        Searches for traces matching the given parameters. Supports tag-based
+        search and TraceQL queries.
+      parameters:
+        - name: q
+          in: query
+          description: TraceQL query string
+          schema:
+            type: string
+        - name: tags
+          in: query
+          description: >-
+            Tag-based search in logfmt format, e.g. "service.name=myservice error=true"
+          schema:
+            type: string
+        - name: minDuration
+          in: query
+          description: Minimum trace duration, e.g. "1.5s" or "500ms"
+          schema:
+            type: string
+        - name: maxDuration
+          in: query
+          description: Maximum trace duration
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Maximum number of traces to return
+          schema:
+            type: integer
+            default: 20
+        - name: start
+          in: query
+          description: Start of time range in Unix epoch seconds
+          schema:
+            type: integer
+        - name: end
+          in: query
+          description: End of time range in Unix epoch seconds
+          schema:
+            type: integer
+        - name: spss
+          in: query
+          description: Spans per span set, limits spans returned per set
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+  /api/search/tags:
+    get:
+      operationId: getSearchTags
+      summary: Get search tag names
+      description: Returns a list of tag names that can be used for search.
+      parameters:
+        - name: scope
+          in: query
+          description: Scope of tags to return (resource, span, or intrinsic)
+          schema:
+            type: string
+            enum:
+              - resource
+              - span
+              - intrinsic
+        - name: start
+          in: query
+          description: Start of time range in Unix epoch seconds
+          schema:
+            type: integer
+        - name: end
+          in: query
+          description: End of time range in Unix epoch seconds
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of tag names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagNamesResponse'
+  /api/search/tag/{tagName}/values:
+    get:
+      operationId: getSearchTagValues
+      summary: Get values for a tag
+      description: Returns a list of values for a given tag name.
+      parameters:
+        - name: tagName
+          in: path
+          required: true
+          description: The tag name to lookup values for
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: TraceQL query to filter values by
+          schema:
+            type: string
+        - name: start
+          in: query
+          description: Start of time range in Unix epoch seconds
+          schema:
+            type: integer
+        - name: end
+          in: query
+          description: End of time range in Unix epoch seconds
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of tag values
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagValuesResponse'
+  /api/v2/search/tags:
+    get:
+      operationId: getSearchTagsV2
+      summary: Get search tag names (v2)
+      description: >-
+        Returns tag names with their scopes. V2 endpoint provides scope
+        information alongside tag names.
+      parameters:
+        - name: scope
+          in: query
+          description: Scope of tags to return
+          schema:
+            type: string
+            enum:
+              - resource
+              - span
+              - intrinsic
+        - name: start
+          in: query
+          schema:
+            type: integer
+        - name: end
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Scoped tag names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagNamesV2Response'
+  /api/v2/search/tag/{tagName}/values:
+    get:
+      operationId: getSearchTagValuesV2
+      summary: Get values for a tag (v2)
+      description: Returns tag values with their types.
+      parameters:
+        - name: tagName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: TraceQL query to filter values
+          schema:
+            type: string
+        - name: start
+          in: query
+          schema:
+            type: integer
+        - name: end
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Tag values with types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagValuesV2Response'
+  /api/echo:
+    get:
+      operationId: echo
+      summary: Echo endpoint
+      description: Health check endpoint that returns a simple response.
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            text/plain:
+              schema:
+                type: string
+  /ready:
+    get:
+      operationId: ready
+      summary: Readiness check
+      description: Returns 200 when Tempo is ready to serve traffic.
+      responses:
+        '200':
+          description: Service is ready
+        '503':
+          description: Service is not ready
+  /status/buildinfo:
+    get:
+      operationId: getBuildInfo
+      summary: Get build information
+      description: Returns build information about the Tempo instance.
+      responses:
+        '200':
+          description: Build information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildInfo'
+  /api/metrics/summary:
+    get:
+      operationId: getMetricsSummary
+      summary: Get metrics summary
+      description: >-
+        Returns RED metrics (rate, error, duration) computed from traces
+        matching the given TraceQL query.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: TraceQL query to compute metrics from
+          schema:
+            type: string
+        - name: groupBy
+          in: query
+          description: Attribute to group metrics by
+          schema:
+            type: string
+        - name: start
+          in: query
+          schema:
+            type: integer
+        - name: end
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Metrics summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricsSummaryResponse'
+components:
+  schemas:
+    Trace:
+      type: object
+      properties:
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpans'
+    ResourceSpans:
+      type: object
+      properties:
+        resource:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValue'
+        scopeSpans:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeSpans'
+    ScopeSpans:
+      type: object
+      properties:
+        scope:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'
+    Span:
+      type: object
+      properties:
+        traceId:
+          type: string
+        spanId:
+          type: string
+        parentSpanId:
+          type: string
+        name:
+          type: string
+        kind:
+          type: integer
+          description: >-
+            0=UNSPECIFIED, 1=INTERNAL, 2=SERVER, 3=CLIENT, 4=PRODUCER, 5=CONSUMER
+        startTimeUnixNano:
+          type: string
+          description: Start time in nanoseconds since epoch
+        endTimeUnixNano:
+          type: string
+          description: End time in nanoseconds since epoch
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+        status:
+          type: object
+          properties:
+            code:
+              type: integer
+              description: 0=UNSET, 1=OK, 2=ERROR
+            message:
+              type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpanEvent'
+    SpanEvent:
+      type: object
+      properties:
+        timeUnixNano:
+          type: string
+        name:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    SearchResponse:
+      type: object
+      properties:
+        traces:
+          type: array
+          items:
+            $ref: '#/components/schemas/TraceSearchMetadata'
+        metrics:
+          type: object
+          properties:
+            inspectedTraces:
+              type: integer
+            inspectedBytes:
+              type: integer
+    TraceSearchMetadata:
+      type: object
+      properties:
+        traceID:
+          type: string
+        rootServiceName:
+          type: string
+        rootTraceName:
+          type: string
+        startTimeUnixNano:
+          type: string
+        durationMs:
+          type: integer
+        spanSets:
+          type: array
+          items:
+            type: object
+            properties:
+              spans:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    spanID:
+                      type: string
+                    startTimeUnixNano:
+                      type: string
+                    durationNanos:
+                      type: string
+                    attributes:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/KeyValue'
+              matched:
+                type: integer
+    TagNamesResponse:
+      type: object
+      properties:
+        tagNames:
+          type: array
+          items:
+            type: string
+    TagValuesResponse:
+      type: object
+      properties:
+        tagValues:
+          type: array
+          items:
+            type: string
+    TagNamesV2Response:
+      type: object
+      properties:
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
+    TagValuesV2Response:
+      type: object
+      properties:
+        tagValues:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+    BuildInfo:
+      type: object
+      properties:
+        version:
+          type: string
+        revision:
+          type: string
+        branch:
+          type: string
+        buildDate:
+          type: string
+        buildUser:
+          type: string
+        goVersion:
+          type: string
+    MetricsSummaryResponse:
+      type: object
+      properties:
+        spanCount:
+          type: integer
+        errorSpanCount:
+          type: integer
+        series:
+          type: array
+          items:
+            type: object
+            properties:
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeyValue'
+              p50:
+                type: number
+              p90:
+                type: number
+              p95:
+                type: number
+              p99:
+                type: number
+              rate:
+                type: number
+              errors:
+                type: number

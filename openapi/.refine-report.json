@@ -1,0 +1,24 @@
+{
+  "provider": "grafana-tempo",
+  "sources": [
+    "grafana-tempo-echo-api-openapi.yml",
+    "grafana-tempo-metrics-api-openapi.yml",
+    "grafana-tempo-ready-api-openapi.yml",
+    "grafana-tempo-search-api-openapi.yml",
+    "grafana-tempo-status-api-openapi.yml",
+    "grafana-tempo-traces-api-openapi.yml"
+  ],
+  "outputs": [
+    "grafana-tempo-echo-api-openapi.yml",
+    "grafana-tempo-metrics-api-openapi.yml",
+    "grafana-tempo-ready-api-openapi.yml",
+    "grafana-tempo-search-api-openapi.yml",
+    "grafana-tempo-status-api-openapi.yml",
+    "grafana-tempo-traces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "ab4bacbc-78f6-419b-a125-c43bb6b2f5b9",
+      "name": "Echo",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "485606c4-b05b-4184-93f7-816605e00ddf",
+          "name": "Echo endpoint",
+          "request": {
+            "name": "Echo endpoint",
+            "description": {
+              "content": "Health check endpoint that returns a simple response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "echo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c85b5116-7a81-4540-a23d-0eb76c606e3a",
+              "name": "Service is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "echo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3200",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4a459a0-5a67-4f21-bae6-80661ebd66bf",
+    "name": "Grafana Tempo HTTP Echo API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.\n\nContact Support:\n Name: Grafana Labs",
+      "type": "text/plain"
+    }
+  }
+}

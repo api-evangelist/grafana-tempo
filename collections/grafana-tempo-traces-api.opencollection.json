@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Grafana Tempo HTTP Echo Traces API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Traces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get trace by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/traces/:traceID",
+            "params": [
+              {
+                "name": "traceID",
+                "value": "",
+                "type": "path",
+                "description": "Trace ID in hex format"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range in Unix epoch seconds"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End of time range in Unix epoch seconds"
+              }
+            ]
+          },
+          "docs": "Returns a complete trace by its trace ID. The response format depends on the Accept header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

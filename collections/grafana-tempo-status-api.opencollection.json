@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Grafana Tempo HTTP Echo Status API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get build information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/status/buildinfo"
+          },
+          "docs": "Returns build information about the Tempo instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

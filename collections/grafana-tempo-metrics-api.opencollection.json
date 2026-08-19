@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Grafana Tempo HTTP Echo Metrics API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get metrics summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/metrics/summary",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "TraceQL query to compute metrics from"
+              },
+              {
+                "name": "groupBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to group metrics by"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns RED metrics (rate, error, duration) computed from traces matching the given TraceQL query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

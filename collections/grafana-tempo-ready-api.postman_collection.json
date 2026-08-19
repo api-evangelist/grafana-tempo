@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "63828361-e94c-4406-811e-cc419d419573",
+      "name": "Ready",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8fa8717c-248a-4b7d-8079-7b9f4c26cbc3",
+          "name": "Readiness check",
+          "request": {
+            "name": "Readiness check",
+            "description": {
+              "content": "Returns 200 when Tempo is ready to serve traffic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8238474c-87ca-454d-a571-bd5fa6648c0d",
+              "name": "Service is ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59770890-1156-4e95-9f35-5cd6f3488518",
+              "name": "Service is not ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3200",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c4461668-1eba-4ae8-b694-cdf9ecf7d32b",
+    "name": "Grafana Tempo HTTP Echo Ready API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.\n\nContact Support:\n Name: Grafana Labs",
+      "type": "text/plain"
+    }
+  }
+}

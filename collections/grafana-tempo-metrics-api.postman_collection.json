@@ -1,0 +1,146 @@
+{
+  "item": [
+    {
+      "id": "e1b207b1-8976-45ab-b1d2-cc1d1e474e02",
+      "name": "Metrics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "404e4775-f040-4d89-942a-b6e999669fc2",
+          "name": "Get metrics summary",
+          "request": {
+            "name": "Get metrics summary",
+            "description": {
+              "content": "Returns RED metrics (rate, error, duration) computed from traces matching the given TraceQL query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metrics",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) TraceQL query to compute metrics from"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupBy",
+                  "value": "<string>",
+                  "description": "Attribute to group metrics by"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf7b4ef8-2d21-4054-be52-023f3e0f930f",
+              "name": "Metrics summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "metrics",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"spanCount\": 3802,\n  \"errorSpanCount\": 3681,\n  \"series\": [\n    {\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 2560.6462896619455,\n            \"boolValue\": false\n          }\n        },\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 4061.8009012101484,\n            \"boolValue\": true\n          }\n        }\n      ],\n      \"p50\": 4742.912885961385,\n      \"p90\": 1754.6129111252262,\n      \"p95\": 1062.986763882322,\n      \"p99\": 302.5888229846152,\n      \"rate\": 6768.715218296226,\n      \"errors\": 6537.600822116088\n    },\n    {\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 7597.38590883436,\n            \"boolValue\": true\n          }\n        },\n        {\n          \"key\": \"string\",\n          \"value\": {\n            \"stringValue\": \"string\",\n            \"intValue\": \"string\",\n            \"doubleValue\": 937.9203739676223,\n            \"boolValue\": true\n          }\n        }\n      ],\n      \"p50\": 4626.597940307116,\n      \"p90\": 4842.335658544713,\n      \"p95\": 1027.4026742980168,\n      \"p99\": 741.6958763334902,\n      \"rate\": 5485.622458422154,\n      \"errors\": 1426.4805677450177\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3200",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3fbf9932-3078-4337-8d6e-9d430f6a258f",
+    "name": "Grafana Tempo HTTP Echo Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.\n\nContact Support:\n Name: Grafana Labs",
+      "type": "text/plain"
+    }
+  }
+}

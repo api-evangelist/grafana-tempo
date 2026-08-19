@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Grafana Tempo HTTP Echo Search API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for traces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "TraceQL query string"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Tag-based search in logfmt format, e.g. \"service.name=myservice error=true\""
+              },
+              {
+                "name": "minDuration",
+                "value": "",
+                "type": "query",
+                "description": "Minimum trace duration, e.g. \"1.5s\" or \"500ms\""
+              },
+              {
+                "name": "maxDuration",
+                "value": "",
+                "type": "query",
+                "description": "Maximum trace duration"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of traces to return"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range in Unix epoch seconds"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End of time range in Unix epoch seconds"
+              },
+              {
+                "name": "spss",
+                "value": "",
+                "type": "query",
+                "description": "Spans per span set, limits spans returned per set"
+              }
+            ]
+          },
+          "docs": "Searches for traces matching the given parameters. Supports tag-based search and TraceQL queries."
+        },
+        {
+          "info": {
+            "name": "Get search tag names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/search/tags",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of tags to return (resource, span, or intrinsic)"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range in Unix epoch seconds"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End of time range in Unix epoch seconds"
+              }
+            ]
+          },
+          "docs": "Returns a list of tag names that can be used for search."
+        },
+        {
+          "info": {
+            "name": "Get values for a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/search/tag/:tagName/values",
+            "params": [
+              {
+                "name": "tagName",
+                "value": "",
+                "type": "path",
+                "description": "The tag name to lookup values for"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "TraceQL query to filter values by"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start of time range in Unix epoch seconds"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End of time range in Unix epoch seconds"
+              }
+            ]
+          },
+          "docs": "Returns a list of values for a given tag name."
+        },
+        {
+          "info": {
+            "name": "Get search tag names (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/v2/search/tags",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Scope of tags to return"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns tag names with their scopes. V2 endpoint provides scope information alongside tag names."
+        },
+        {
+          "info": {
+            "name": "Get values for a tag (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:3200/api/v2/search/tag/:tagName/values",
+            "params": [
+              {
+                "name": "tagName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "TraceQL query to filter values"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns tag values with their types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

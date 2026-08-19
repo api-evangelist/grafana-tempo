@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "b59f2fbc-5db9-4cd9-adbd-e23495e72e14",
+      "name": "Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ec20a75-b8bd-4d35-b5da-66081716f996",
+          "name": "Get build information",
+          "request": {
+            "name": "Get build information",
+            "description": {
+              "content": "Returns build information about the Tempo instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "status",
+                "buildinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac858c36-d885-41b0-8b61-a8038092436f",
+              "name": "Build information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status",
+                    "buildinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"revision\": \"string\",\n  \"branch\": \"string\",\n  \"buildDate\": \"string\",\n  \"buildUser\": \"string\",\n  \"goVersion\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3200",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "41cd0361-14cf-44d5-8fd6-9044072cd467",
+    "name": "Grafana Tempo HTTP Echo Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.\n\nContact Support:\n Name: Grafana Labs",
+      "type": "text/plain"
+    }
+  }
+}

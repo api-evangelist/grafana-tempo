@@ -23,6 +23,12 @@ tags:
   - Grafana
   - Microservices
   - Observability
+  - Open-Source
+tags_raw:
+  - Distributed Tracing
+  - Grafana
+  - Microservices
+  - Observability
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml
 created: '2026-03-26'

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Grafana Tempo HTTP Echo Traces API
+  title: Grafana Tempo HTTP Traces API
   description: Grafana Tempo HTTP API for querying traces, searching with TraceQL, and retrieving trace metadata. Tempo is an open-source, high-scale distributed tracing backend.
   version: 2.0.0
   contact:
@@ -56,6 +56,27 @@ paths:
       - Traces
 components:
   schemas:
+    Trace:
+      type: object
+      properties:
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpans'
+    ScopeSpans:
+      type: object
+      properties:
+        scope:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'
     KeyValue:
       type: object
       properties:
@@ -108,31 +129,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SpanEvent'
-    ScopeSpans:
-      type: object
-      properties:
-        scope:
-          type: object
-          properties:
-            name:
-              type: string
-            version:
-              type: string
-        spans:
-          type: array
-          items:
-            $ref: '#/components/schemas/Span'
-    SpanEvent:
-      type: object
-      properties:
-        timeUnixNano:
-          type: string
-        name:
-          type: string
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValue'
     ResourceSpans:
       type: object
       properties:
@@ -147,10 +143,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ScopeSpans'
-    Trace:
+    SpanEvent:
       type: object
       properties:
-        batches:
+        timeUnixNano:
+          type: string
+        name:
+          type: string
+        attributes:
           type: array
           items:
-            $ref: '#/components/schemas/ResourceSpans'
+            $ref: '#/components/schemas/KeyValue'

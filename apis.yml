@@ -7,15 +7,19 @@ description: >-
 type: Index
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - grafana/tempo
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -35,13 +39,14 @@ tags:
   - Grafana
   - Microservices
   - Observability
-  - Open-Source
+  - Open Source
 tags_raw:
   - Distributed Tracing
   - Grafana
   - Microservices
   - Observability
   - Open Source
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-05-19'

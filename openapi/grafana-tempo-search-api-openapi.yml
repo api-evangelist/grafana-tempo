@@ -212,13 +212,20 @@ paths:
       - Search
 components:
   schemas:
-    TagNamesResponse:
+    TagNamesV2Response:
       type: object
       properties:
-        tagNames:
+        scopes:
           type: array
           items:
-            type: string
+            type: object
+            properties:
+              name:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
     KeyValue:
       type: object
       properties:
@@ -235,32 +242,6 @@ components:
               type: number
             boolValue:
               type: boolean
-    TagNamesV2Response:
-      type: object
-      properties:
-        scopes:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              tags:
-                type: array
-                items:
-                  type: string
-    TagValuesV2Response:
-      type: object
-      properties:
-        tagValues:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              value:
-                type: string
     TagValuesResponse:
       type: object
       properties:
@@ -303,6 +284,25 @@ components:
                         $ref: '#/components/schemas/KeyValue'
               matched:
                 type: integer
+    TagValuesV2Response:
+      type: object
+      properties:
+        tagValues:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+    TagNamesResponse:
+      type: object
+      properties:
+        tagNames:
+          type: array
+          items:
+            type: string
     SearchResponse:
       type: object
       properties:

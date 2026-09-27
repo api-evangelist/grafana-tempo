@@ -56,43 +56,6 @@ paths:
       - Traces
 components:
   schemas:
-    Trace:
-      type: object
-      properties:
-        batches:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpans'
-    ScopeSpans:
-      type: object
-      properties:
-        scope:
-          type: object
-          properties:
-            name:
-              type: string
-            version:
-              type: string
-        spans:
-          type: array
-          items:
-            $ref: '#/components/schemas/Span'
-    KeyValue:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: object
-          properties:
-            stringValue:
-              type: string
-            intValue:
-              type: string
-            doubleValue:
-              type: number
-            boolValue:
-              type: boolean
     Span:
       type: object
       properties:
@@ -143,6 +106,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ScopeSpans'
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    Trace:
+      type: object
+      properties:
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpans'
     SpanEvent:
       type: object
       properties:
@@ -154,3 +140,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KeyValue'
+    ScopeSpans:
+      type: object
+      properties:
+        scope:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'

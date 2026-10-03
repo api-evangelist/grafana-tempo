@@ -212,40 +212,10 @@ paths:
       - Search
 components:
   schemas:
-    TagNamesV2Response:
+    TagNamesResponse:
       type: object
       properties:
-        scopes:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              tags:
-                type: array
-                items:
-                  type: string
-    KeyValue:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: object
-          properties:
-            stringValue:
-              type: string
-            intValue:
-              type: string
-            doubleValue:
-              type: number
-            boolValue:
-              type: boolean
-    TagValuesResponse:
-      type: object
-      properties:
-        tagValues:
+        tagNames:
           type: array
           items:
             type: string
@@ -296,13 +266,43 @@ components:
                 type: string
               value:
                 type: string
-    TagNamesResponse:
+    KeyValue:
       type: object
       properties:
-        tagNames:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    TagValuesResponse:
+      type: object
+      properties:
+        tagValues:
           type: array
           items:
             type: string
+    TagNamesV2Response:
+      type: object
+      properties:
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
     SearchResponse:
       type: object
       properties:

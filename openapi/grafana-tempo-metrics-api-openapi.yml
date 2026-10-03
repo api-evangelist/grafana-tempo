@@ -51,6 +51,22 @@ paths:
       - Metrics
 components:
   schemas:
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
     MetricsSummaryResponse:
       type: object
       properties:
@@ -79,19 +95,3 @@ components:
                 type: number
               errors:
                 type: number
-    KeyValue:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: object
-          properties:
-            stringValue:
-              type: string
-            intValue:
-              type: string
-            doubleValue:
-              type: number
-            boolValue:
-              type: boolean

@@ -56,6 +56,68 @@ paths:
       - Traces
 components:
   schemas:
+    ScopeSpans:
+      type: object
+      properties:
+        scope:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'
+    SpanEvent:
+      type: object
+      properties:
+        timeUnixNano:
+          type: string
+        name:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    ResourceSpans:
+      type: object
+      properties:
+        resource:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                $ref: '#/components/schemas/KeyValue'
+        scopeSpans:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeSpans'
+    Trace:
+      type: object
+      properties:
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpans'
     Span:
       type: object
       properties:
@@ -92,65 +154,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SpanEvent'
-    ResourceSpans:
-      type: object
-      properties:
-        resource:
-          type: object
-          properties:
-            attributes:
-              type: array
-              items:
-                $ref: '#/components/schemas/KeyValue'
-        scopeSpans:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScopeSpans'
-    KeyValue:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: object
-          properties:
-            stringValue:
-              type: string
-            intValue:
-              type: string
-            doubleValue:
-              type: number
-            boolValue:
-              type: boolean
-    Trace:
-      type: object
-      properties:
-        batches:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpans'
-    SpanEvent:
-      type: object
-      properties:
-        timeUnixNano:
-          type: string
-        name:
-          type: string
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValue'
-    ScopeSpans:
-      type: object
-      properties:
-        scope:
-          type: object
-          properties:
-            name:
-              type: string
-            version:
-              type: string
-        spans:
-          type: array
-          items:
-            $ref: '#/components/schemas/Span'

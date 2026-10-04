@@ -131,6 +131,9 @@ apis:
   - type: JSONSchema
     url: json-schema/trace.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/grafana-tempo-capability-edges.yml
+    name: Grafana Tempo Business Capability Map
   - type: AgenticAccess
     url: agentic-access/grafana-tempo-agentic-access.yml
   - type: TrustCenter

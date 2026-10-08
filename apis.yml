@@ -131,6 +131,12 @@ apis:
   - type: JSONSchema
     url: json-schema/trace.yml
 common:
+  - type: Plans
+    url: plans/grafana-tempo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/grafana-tempo-rate-limits.yml
+  - type: FinOps
+    url: finops/grafana-tempo-finops.yml
   - type: CapabilityMap
     url: capabilities/grafana-tempo-capability-edges.yml
     name: Grafana Tempo Business Capability Map

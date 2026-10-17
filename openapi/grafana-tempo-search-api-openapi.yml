@@ -226,6 +226,43 @@ components:
               type: integer
             inspectedBytes:
               type: integer
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: object
+          properties:
+            stringValue:
+              type: string
+            intValue:
+              type: string
+            doubleValue:
+              type: number
+            boolValue:
+              type: boolean
+    TagValuesResponse:
+      type: object
+      properties:
+        tagValues:
+          type: array
+          items:
+            type: string
+    TagNamesV2Response:
+      type: object
+      properties:
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
     TraceSearchMetadata:
       type: object
       properties:
@@ -261,43 +298,13 @@ components:
                         $ref: '#/components/schemas/KeyValue'
               matched:
                 type: integer
-    TagValuesResponse:
+    TagNamesResponse:
       type: object
       properties:
-        tagValues:
+        tagNames:
           type: array
           items:
             type: string
-    TagNamesV2Response:
-      type: object
-      properties:
-        scopes:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              tags:
-                type: array
-                items:
-                  type: string
-    KeyValue:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: object
-          properties:
-            stringValue:
-              type: string
-            intValue:
-              type: string
-            doubleValue:
-              type: number
-            boolValue:
-              type: boolean
     TagValuesV2Response:
       type: object
       properties:
@@ -310,10 +317,3 @@ components:
                 type: string
               value:
                 type: string
-    TagNamesResponse:
-      type: object
-      properties:
-        tagNames:
-          type: array
-          items:
-            type: string

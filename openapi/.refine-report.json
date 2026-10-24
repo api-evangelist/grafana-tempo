@@ -1,46 +1,34 @@
 {
   "provider": "grafana-tempo",
   "sources": [
-    "_original/tempo-http-api.yml"
+    "_original/grafana-tempo-openapi.json"
   ],
   "outputs": [
-    "grafana-tempo-echo-api-openapi.yml",
-    "grafana-tempo-metrics-api-openapi.yml",
-    "grafana-tempo-ready-api-openapi.yml",
-    "grafana-tempo-search-api-openapi.yml",
-    "grafana-tempo-status-api-openapi.yml",
-    "grafana-tempo-traces-api-openapi.yml"
+    "grafana-tempo-accesspolicies-api-openapi.yml",
+    "grafana-tempo-instances-api-openapi.yml",
+    "grafana-tempo-org-stack-regions-api-openapi.yml",
+    "grafana-tempo-orgs-api-openapi.yml",
+    "grafana-tempo-plugins-api-openapi.yml",
+    "grafana-tempo-plugins-marketplace-api-openapi.yml",
+    "grafana-tempo-stack-regions-api-openapi.yml",
+    "grafana-tempo-stacks-api-openapi.yml",
+    "grafana-tempo-tokens-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "tempo-http-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "tempo-http-api.yml: tagged paths GET /api/traces/{traceID} -> Traces",
-    "tempo-http-api.yml: tagged paths GET /api/search -> Search",
-    "tempo-http-api.yml: tagged paths GET /api/search/tags -> Search",
-    "tempo-http-api.yml: tagged paths GET /api/search/tag/{tagName}/values -> Search",
-    "tempo-http-api.yml: tagged paths GET /api/v2/search/tags -> Search",
-    "tempo-http-api.yml: tagged paths GET /api/v2/search/tag/{tagName}/values -> Search",
-    "tempo-http-api.yml: tagged paths GET /api/echo -> Echo",
-    "tempo-http-api.yml: tagged paths GET /ready -> Ready",
-    "tempo-http-api.yml: tagged paths GET /status/buildinfo -> Status",
-    "tempo-http-api.yml: tagged paths GET /api/metrics/summary -> Metrics",
-    "tempo-http-api.yml: declared missing tag: Echo",
-    "tempo-http-api.yml: declared missing tag: Metrics",
-    "tempo-http-api.yml: declared missing tag: Ready",
-    "tempo-http-api.yml: declared missing tag: Search",
-    "tempo-http-api.yml: declared missing tag: Status",
-    "tempo-http-api.yml: declared missing tag: Traces",
-    "apis.yml register: already-registered"
+    "grafana-tempo-openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "grafana-tempo-openapi.json: declared missing tag: accesspolicies",
+    "grafana-tempo-openapi.json: declared missing tag: org-stack-regions",
+    "grafana-tempo-openapi.json: declared missing tag: orgs",
+    "grafana-tempo-openapi.json: declared missing tag: plugins",
+    "grafana-tempo-openapi.json: declared missing tag: plugins-marketplace",
+    "grafana-tempo-openapi.json: declared missing tag: stack-regions",
+    "grafana-tempo-openapi.json: declared missing tag: stacks",
+    "grafana-tempo-openapi.json: declared missing tag: tokens",
+    "apis.yml register: written (+9 apis, 9 total)"
   ],
-  "skipped": [
-    "grafana-tempo-echo-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "grafana-tempo-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "grafana-tempo-ready-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "grafana-tempo-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "grafana-tempo-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "grafana-tempo-traces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

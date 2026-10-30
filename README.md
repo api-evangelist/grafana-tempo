@@ -1,4 +1,4 @@
-# Grafana Tempo (grafana-tempo)
+# Grafana Tempo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,61 +66,142 @@
 
 Grafana Tempo is an open-source, high-scale distributed tracing backend that requires only object storage to operate, making it cost-effective and easy to run. It integrates deeply with Grafana, Prometheus, and Loki for seamless observability across metrics, logs, and traces.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/grafana-tempo/refs/heads/main/apis.yml)
+**Areas:** Distributed Tracing · Grafana · Microservices · Observability · Open Source
 
-## Scope
+## Grafana Tempo on APIs.io
 
-- **Type:** Index
+Everything profiled for Grafana Tempo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/grafana-tempo/](https://apis.io/providers/grafana-tempo/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Distributed Tracing
-- Grafana
-- Microservices
-- Observability
-- Open Source
+- [Grafana Tempo Echo API](https://apis.io/apis/grafana-tempo/grafana-tempo-echo-api/) — The Echo API from Grafana Tempo — 1 operation(s) for echo.
+- [Grafana Tempo Metrics API](https://apis.io/apis/grafana-tempo/grafana-tempo-metrics-api/) — The Metrics API from Grafana Tempo — 1 operation(s) for metrics.
+- [Grafana Tempo Ready API](https://apis.io/apis/grafana-tempo/grafana-tempo-ready-api/) — The Ready API from Grafana Tempo — 1 operation(s) for ready.
+- [Grafana Tempo Search API](https://apis.io/apis/grafana-tempo/grafana-tempo-search-api/) — The Search API from Grafana Tempo — 5 operation(s) for search.
+- [Grafana Tempo Status API](https://apis.io/apis/grafana-tempo/grafana-tempo-status-api/) — The Status API from Grafana Tempo — 1 operation(s) for status.
+- [Grafana Tempo Traces API](https://apis.io/apis/grafana-tempo/grafana-tempo-traces-api/) — The Traces API from Grafana Tempo — 1 operation(s) for traces.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Grafana Tempo HTTP API
+Model Context Protocol servers that expose the API to agents.
 
-Grafana Tempo HTTP API for querying traces, searching with TraceQL, retrieving tag names and values, and computing metrics summaries from distributed trace data.
+- [grafana-tempo](https://apis.io/servers/grafana-tempo/grafana-tempo/)
 
-- **Human URL:** [https://grafana.com/docs/tempo/latest/api_docs/](https://grafana.com/docs/tempo/latest/api_docs/)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Distributed Tracing
-- Observability
-- Search
-- TraceQL
-- Traces
+- [Grafana Tempo Agentic Access](https://apis.io/agentic-access/grafana-tempo/grafana-tempo-agentic-access/)
 
-#### Properties
+#### Collections (7)
 
-- [Documentation](https://grafana.com/docs/tempo/latest/api_docs/)
-- [OpenAPI](openapi/tempo-http-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/tempo-http-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/tempo-http-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/trace.yml) — [JSON Schema](https://json-schema.org/specification)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Grafana Tempo HTTP Echo API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-echo-api/)
+- [Grafana Tempo HTTP Echo Metrics API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-metrics-api/)
+- [Grafana Tempo HTTP Echo Ready API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-ready-api/)
+- [Grafana Tempo HTTP Echo Search API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-search-api/)
+- [Grafana Tempo HTTP Echo Status API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-status-api/)
+- [Grafana Tempo HTTP Echo Traces API](https://apis.io/collections/grafana-tempo/open-grafana-tempo-traces-api/)
+- [Grafana Tempo HTTP API](https://apis.io/collections/grafana-tempo/open-tempo-http-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Grafana Tempo — jsonschema rules](https://apis.io/rules/grafana-tempo/grafana-tempo-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Grafana Tempo Domain Security](https://apis.io/security/grafana-tempo/grafana-tempo-domain-security/)
+- [Grafana Tempo Trust Center](https://apis.io/security/grafana-tempo/grafana-tempo-trust-center/)
+- [Grafana Tempo Vulnerability Disclosure](https://apis.io/security/grafana-tempo/grafana-tempo-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Grafana Tempo Plans Pricing](https://apis.io/plans/grafana-tempo/grafana-tempo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Grafana Tempo Rate Limits](https://apis.io/rate-limits/grafana-tempo/grafana-tempo-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Grafana Tempo Finops](https://apis.io/finops/grafana-tempo/grafana-tempo-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://grafana.com/oss/tempo/)
 - [Documentation](https://grafana.com/docs/tempo/latest/)
-- [Getting Started](https://grafana.com/docs/tempo/latest/getting-started/)
-- [Git Hub](https://github.com/grafana/tempo)
-- [Blog](https://grafana.com/blog/)
+- [Getting started](https://grafana.com/docs/tempo/latest/getting-started/)
 - [Pricing](https://grafana.com/pricing/)
-- [Integrations](https://grafana.com/integrations/)
-- [L L Ms Txt](https://grafana.com/llms.txt)
+- [Blog](https://grafana.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.7 |
+| Contract quality | 31.2 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 26.3 |
+
+**Agent readiness 49.5** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/grafana-tempo/](https://apis.io/providers/grafana-tempo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Grafana Tempo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/grafana-tempo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
